@@ -35,7 +35,7 @@ export default function GlobalState (props) {
       setCartItems(newCart)
     } else {
       cart.splice(itemIndex, 1)
-      setCartItems(cart)
+      setCartItems([...cart])
     }
   }
 
@@ -53,10 +53,14 @@ export default function GlobalState (props) {
     console.log(newImages)
   }
 
+  const clearCart = () => setCartItems([])
+
   return (
     <AppContext.Provider
       value={{
         images,
+        cartItems,
+        clearCart,
         addItems,
         removeItems,
         toggleFavorite
