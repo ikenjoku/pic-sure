@@ -50,7 +50,6 @@ export default function GlobalState (props) {
       return image
     })
     setImages(newImages)
-    console.log(newImages)
   }
 
   const clearCart = () => setCartItems([])

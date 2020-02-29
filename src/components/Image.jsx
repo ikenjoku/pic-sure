@@ -1,14 +1,14 @@
-import React, { useState, useContext } from "react"
+import React, { useContext } from "react"
 import PropTypes from 'prop-types'
 import AppContext from '../context/app-context'
+import useHover from '../hooks/useHover'
 
 function Image({className, img}) {
-  const [isHovering, setIsHovering] = useState(false)
+  const [ isHovering, ref ] = useHover()
   const context = useContext(AppContext)
     return (
         <div
-         onMouseOver={() => setIsHovering(true)}
-         onMouseLeave={() => setIsHovering(false)}
+          ref={ref}
          className={`${className} image-container`}>
           { isHovering && (
           <>
